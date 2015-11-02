@@ -14,6 +14,12 @@ namespace SharedFolderIndexer
         {
         }
 
+        protected override void OnPreCatalog(PreCatalogEventArgs e)
+        {
+            base.OnPreCatalog(e);
+            e.Action = CatalogAction.AddRecord;
+        }
+
         protected override void OnCatalog(CatalogEventArgs e)
         {
             base.OnCatalog(e);
