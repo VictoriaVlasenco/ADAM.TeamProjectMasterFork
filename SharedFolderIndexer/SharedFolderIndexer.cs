@@ -47,15 +47,21 @@ namespace SharedFolderIndexer
                     {
                         if (track.SelectSingleNode("filename").InnerText.Equals(Path.GetFileName(e.Path)))
                         {
+                            tmpNode = track.SelectSingleNode("genre");
+
+                            e.Record.Classifications.Add(
+                                tmpNode != null
+                                    ? new ClassificationPath("SoundCloud/" + tmpNode.InnerText)
+                                    : new ClassificationPath("SoundCloud"), true);
+
                             tmpNode = track.SelectSingleNode("title");
                             if (tmpNode != null)
                                 e.Record.Fields.GetField<TextField>("Title").SetValue(tmpNode.InnerText);
+
                             tmpNode = track.SelectSingleNode("artist");
                             if (tmpNode != null)
                                 e.Record.Fields.GetField<TextField>("Artist").SetValue(tmpNode.InnerText);
-                            tmpNode = track.SelectSingleNode("genre");
-                            if (tmpNode != null)
-                                e.Record.Classifications.Add(new ClassificationPath("SoundCloud/" + tmpNode.InnerText),true);
+                            
                             break;
                         }
                     }
@@ -63,6 +69,4 @@ namespace SharedFolderIndexer
             }
         }
     }
-}
-
 }
