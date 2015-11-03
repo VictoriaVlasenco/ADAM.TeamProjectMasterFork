@@ -4,12 +4,10 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Xml;
-using System.Xml.XPath;
 using Adam.Core;
 using Adam.Core.Classifications;
 using Adam.Core.Fields;
 using Adam.Core.Indexer;
-using Adam.Core.Maintenance;
 
 #endregion
 
@@ -36,25 +34,32 @@ namespace SharedFolderIndexer
 
         protected override void OnCatalog(CatalogEventArgs e)
         {
-            base.OnCatalog();
-            XPathDocument metadataDocument = new XPathDocument(Path.GetDirectoryName(e.Path) + "/metadata.xml");
-            XPathNavigator metadataNavigator = metadataDocument.CreateNavigator();
-            XPathNodeIterator trackIterator = metadataNavigator.Select("library/track");
+            base.OnCatalog(e);
+            var metadataDocument = new XmlDocument();
+            metadataDocument.Load(Path.GetDirectoryName(e.Path) + @"\metadata.xml");
+            XmlNode tracks = metadataDocument.DocumentElement;
             XmlNode tmpNode;
-            foreach (XmlNode track in trackIterator)
+            if (tracks != null)
             {
-                if (Path.GetFileName(e.Path).Equals(track.SelectSingleNode("fileName")))
+                foreach (XmlNode track in tracks.ChildNodes)
                 {
-                    tmpNode = track.SelectSingleNode("title");
-                    if (tmpNode != null)
-                        e.Record.Fields.GetField<TextField>("Title").SetValue(tmpNode.Value);
-                    tmpNode = track.SelectSingleNode("artist");
-                    if (tmpNode != null)
-                        e.Record.Fields.GetField<TextField>("Artist").SetValue(tmpNode.Value);
-                    tmpNode = track.SelectSingleNode("genre");
-                    if (tmpNode != null)
-                        e.Record.Classifications.Add(new ClassificationPath("SoundCloud/"+tmpNode.Value), true);
-                    break;
+                    if (track.SelectSingleNode("filename") != null)
+                    {
+                        if (track.SelectSingleNode("filename").InnerText.Equals(Path.GetFileName(e.Path)))
+                        {
+                            tmpNode = track.SelectSingleNode("title");
+                            if (tmpNode != null)
+                                e.Record.Fields.GetField<TextField>("Title").SetValue(tmpNode.InnerText);
+                            tmpNode = track.SelectSingleNode("artist");
+                            if (tmpNode != null)
+                                e.Record.Fields.GetField<TextField>("Artist").SetValue(tmpNode.InnerText);
+                            tmpNode = track.SelectSingleNode("genre");
+                            if (tmpNode != null)
+                                e.Record.Classifications.Add(new ClassificationPath("SoundCloud/" + tmpNode.InnerText),
+                                    true);
+                            break;
+                        }
+                    }
                 }
             }
         }
