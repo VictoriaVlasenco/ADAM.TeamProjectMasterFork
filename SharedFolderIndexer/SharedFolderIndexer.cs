@@ -35,8 +35,8 @@ namespace SharedFolderIndexer
         protected override void OnCatalog(CatalogEventArgs e)
         {
             base.OnCatalog(e);
-            var metadataDocument = new XmlDocument();
-            metadataDocument.Load(Path.GetDirectoryName(e.Path) + @"\metadata.xml");
+            XmlDocument metadataDocument = new XmlDocument();
+            metadataDocument.Load(Path.GetDirectoryName(e.Path)+@"\metadata.xml");
             XmlNode tracks = metadataDocument.DocumentElement;
             XmlNode tmpNode;
             if (tracks != null)
@@ -55,8 +55,7 @@ namespace SharedFolderIndexer
                                 e.Record.Fields.GetField<TextField>("Artist").SetValue(tmpNode.InnerText);
                             tmpNode = track.SelectSingleNode("genre");
                             if (tmpNode != null)
-                                e.Record.Classifications.Add(new ClassificationPath("SoundCloud/" + tmpNode.InnerText),
-                                    true);
+                                e.Record.Classifications.Add(new ClassificationPath("SoundCloud/" + tmpNode.InnerText),true);
                             break;
                         }
                     }
@@ -64,4 +63,6 @@ namespace SharedFolderIndexer
             }
         }
     }
+}
+
 }
