@@ -56,11 +56,11 @@ namespace SharedFolderIndexer
 
                             tmpNode = track.SelectSingleNode("title");
                             if (tmpNode != null)
-                                e.Record.Fields.GetField<TextField>("Title").SetValue(tmpNode.InnerText);
+                                e.Record.Fields.GetField<TextField>("SoundTitle").SetValue(tmpNode.InnerText);
 
                             tmpNode = track.SelectSingleNode("artist");
                             if (tmpNode != null)
-                                e.Record.Fields.GetField<TextField>("Artist").SetValue(tmpNode.InnerText);
+                                e.Record.Fields.GetField<TextField>("SoundAuthor").SetValue(tmpNode.InnerText);
                             
                             break;
                         }
