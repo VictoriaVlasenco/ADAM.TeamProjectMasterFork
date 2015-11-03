@@ -22,8 +22,15 @@ namespace SharedFolderIndexer
 
         protected override void OnCatalog(CatalogEventArgs e)
         {
+            var classification = new Classification(App);
+            if (classification.TryLoad(new ClassificationPath("/SoundCloud")) == TryLoadResult.NotFound)
+            {
+                classification.AddNew();
+                classification.Name = "SoundCloud";
+                classification.Save();
+            }
+            e.Record.Classifications.Add(classification.Id);
             base.OnCatalog(e);
-            e.Record.Classifications.Add(new ClassificationPath("/SoundCloud"), true);
         }
     }
 }
