@@ -36,7 +36,7 @@ namespace SharedFolderIndexer
         {
             base.OnCatalog(e);
             XmlDocument metadataDocument = new XmlDocument();
-            metadataDocument.Load(@"C:\metadata.xml");
+            metadataDocument.Load(Path.GetDirectoryName(e.Path)+@"\metadata.xml");
             XmlNode tracks = metadataDocument.DocumentElement;
             XmlNode tmpNode;
             if (tracks != null)
