@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADAM.TeamProject", "ADAM.TeamProject\ADAM.TeamProject.csproj", "{DE56CC14-007C-461E-A35A-531C08C73203}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedFolderIndexer", "SharedFolderIndexer\SharedFolderIndexer.csproj", "{589FB6CB-4E45-485C-9CA4-AD304A074E02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DE56CC14-007C-461E-A35A-531C08C73203}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE56CC14-007C-461E-A35A-531C08C73203}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE56CC14-007C-461E-A35A-531C08C73203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
