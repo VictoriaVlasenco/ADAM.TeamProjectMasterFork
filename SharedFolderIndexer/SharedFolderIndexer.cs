@@ -36,7 +36,7 @@ namespace SharedFolderIndexer
 
         protected override void OnCatalog(CatalogEventArgs e)
         {
-            base.OnCatalog();
+            base.OnCatalog(e);
             XPathDocument metadataDocument = new XPathDocument(Path.GetDirectoryName(e.Path) + "/metadata.xml");
             XPathNavigator metadataNavigator = metadataDocument.CreateNavigator();
             XPathNodeIterator trackIterator = metadataNavigator.Select("library/track");

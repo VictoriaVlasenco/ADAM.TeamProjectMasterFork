@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADAM.TeamProject", "ADAM.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedFolderIndexer", "SharedFolderIndexer\SharedFolderIndexer.csproj", "{589FB6CB-4E45-485C-9CA4-AD304A074E02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "..\ConverterClassLibrary\ConverterClassLibrary\Converter.csproj", "{B2253849-F594-4B8E-97FF-010E9A31D666}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "ConverterClassLibrary\Converter.csproj", "{B2253849-F594-4B8E-97FF-010E9A31D666}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
