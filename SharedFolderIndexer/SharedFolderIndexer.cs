@@ -67,6 +67,7 @@ namespace SharedFolderIndexer
                     }
                 }
             }
+            e.Record.Classifications.Add(new ClassificationPath("SoundCloud/"), true);
         }
     }
 }
