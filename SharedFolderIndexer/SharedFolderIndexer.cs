@@ -35,8 +35,8 @@ namespace SharedFolderIndexer
         protected override void OnCatalog(CatalogEventArgs e)
         {
             base.OnCatalog(e);
-            XmlDocument metadataDocument = new XmlDocument();
-            metadataDocument.Load(Path.GetDirectoryName(e.Path)+@"\metadata.xml");
+            var metadataDocument = new XmlDocument();
+            metadataDocument.Load(Path.GetDirectoryName(e.Path) + @"\metadata.xml");
             XmlNode tracks = metadataDocument.DocumentElement;
             XmlNode tmpNode;
             if (tracks != null)
@@ -57,11 +57,9 @@ namespace SharedFolderIndexer
                             tmpNode = track.SelectSingleNode("title");
                             if (tmpNode != null)
                                 e.Record.Fields.GetField<TextField>("SoundTitle").SetValue(tmpNode.InnerText);
-
                             tmpNode = track.SelectSingleNode("artist");
                             if (tmpNode != null)
                                 e.Record.Fields.GetField<TextField>("SoundAuthor").SetValue(tmpNode.InnerText);
-                            
                             break;
                         }
                     }

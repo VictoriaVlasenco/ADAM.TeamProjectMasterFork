@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{589FB6CB-4E45-485C-9CA4-AD304A074E02}</ProjectGuid>
+    <ProjectGuid>{01169497-6CD3-4B47-A12F-19A0DDD72BF7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharedFolderIndexer</RootNamespace>
-    <AssemblyName>SharedFolderIndexer</AssemblyName>
+    <RootNamespace>JobsMaintenanceManager</RootNamespace>
+    <AssemblyName>JobsMaintenanceManager</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -29,13 +29,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Adam.Core, Version=5.4.0.0, Culture=neutral, PublicKeyToken=63f11f167f68d05b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -54,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SharedFolderIndexer.cs" />
+    <Compile Include="SharedFolderJobsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
