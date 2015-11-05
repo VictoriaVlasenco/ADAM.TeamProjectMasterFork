@@ -7,6 +7,7 @@ using System.Linq;
 using System.Xml;
 using Adam.Core.MediaEngines;
 using Adam.Core.Records;
+using Adam.Tools.ExceptionHandler;
 
 #endregion
 
@@ -26,6 +27,14 @@ namespace SoundCloudMediaEngine
         }
         public ConvertSoundAction(string filepath,string[]formatsRequired,bool isCritical) : base(isCritical)
         {
+            if (filepath == null)
+            {
+                throw ExceptionManager.CreateArgumentNullException("filepath");
+            }
+            if (formatsRequired == null)
+            {
+                throw ExceptionManager.CreateArgumentNullException("formatsRequired");
+            }
             _formatsRequired = formatsRequired;
             _originalFilePath = filepath;
             convertedFilesPaths=new List<string>();
@@ -33,6 +42,11 @@ namespace SoundCloudMediaEngine
 
         public ConvertSoundAction(CatalogActionData data):base(data.IsCritical)
         {
+            if (data == null)
+            {
+                throw ExceptionManager.CreateArgumentNullException("data");
+            }
+
             _originalFilePath = data.Path;
             _formatsRequired = formatsSupported.Except(new List<string>() {Path.GetExtension(data.Path)}).ToArray();
         }
