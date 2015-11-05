@@ -14,7 +14,7 @@ namespace ConverterClassLibrary
         public void Write()
         {
             var command = "\"c:\\Program Files (x86)\\XRECODE\\xrecode.exe\" /input " + Path + AudioFileName
-                + " /output " + Path + " /dest ";
+                + " /output " + OutputPath + " /dest ";
 
             using (var outputFile = new StreamWriter("Execute.bat"))
             {
@@ -22,6 +22,17 @@ namespace ConverterClassLibrary
                 {
                     outputFile.WriteLine(command + formats[i]);
                 }
+            }
+        }
+		
+		public void WriteFormat(string format)
+        {
+            var command = "\"c:\\Program Files (x86)\\XRECODE\\xrecode.exe\" /input " + Path + AudioFileName
+                + " /output " + OutputPath + " /dest " + format;
+
+            using (var outputFile = new StreamWriter("Execute.bat"))
+            {
+                outputFile.WriteLine(command);
             }
         }
     }
