@@ -15,7 +15,7 @@ namespace SharedFolderIndexer
 {
     public class SharedFolderIndexer : IndexMaintenanceJob
     {
-        private readonly string[] formatsSupported = {".mp3", ".wma", ".aac", ".flac"};
+        private readonly string[] formatsSupported = {".mp3"};
 
         public SharedFolderIndexer(Application app)
             : base(app)
