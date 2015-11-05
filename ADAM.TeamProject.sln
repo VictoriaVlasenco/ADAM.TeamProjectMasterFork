@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "ConverterClass
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobsMaintenanceManager", "JobsMaintenanceManager\JobsMaintenanceManager.csproj", "{01169497-6CD3-4B47-A12F-19A0DDD72BF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundPlayer.Web", "SoundPlayer.Web\SoundPlayer.Web.csproj", "{981FD19A-688A-4D4F-A038-3848C868A6EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundCloud.Core", "SoundCloud.Core\SoundCloud.Core.csproj", "{522AE6D3-104D-40F5-ABD4-E20616917866}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{01169497-6CD3-4B47-A12F-19A0DDD72BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01169497-6CD3-4B47-A12F-19A0DDD72BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01169497-6CD3-4B47-A12F-19A0DDD72BF7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{981FD19A-688A-4D4F-A038-3848C868A6EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{981FD19A-688A-4D4F-A038-3848C868A6EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{981FD19A-688A-4D4F-A038-3848C868A6EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{981FD19A-688A-4D4F-A038-3848C868A6EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{522AE6D3-104D-40F5-ABD4-E20616917866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{522AE6D3-104D-40F5-ABD4-E20616917866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{522AE6D3-104D-40F5-ABD4-E20616917866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{522AE6D3-104D-40F5-ABD4-E20616917866}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
