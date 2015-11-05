@@ -15,7 +15,7 @@ namespace SharedFolderIndexer
 {
     public class SharedFolderIndexer : IndexMaintenanceJob
     {
-        private readonly string[] extensionsSupported = {".mp3", ".wma", ".aac", ".flac"};
+        private readonly string[] formatsSupported = {".mp3"};
 
         public SharedFolderIndexer(Application app)
             : base(app)
@@ -25,7 +25,7 @@ namespace SharedFolderIndexer
         protected override void OnPreCatalog(PreCatalogEventArgs e)
         {
             base.OnPreCatalog(e);
-            if (!extensionsSupported.Contains(Path.GetExtension(e.Path), StringComparer.InvariantCultureIgnoreCase))
+            if (!formatsSupported.Contains(Path.GetExtension(e.Path), StringComparer.InvariantCultureIgnoreCase))
             {
                 e.Action = CatalogAction.Fail;
                 e.Message = string.Format("Cannot add file {0} - not supported extension", e.Path);
