@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedFolderIndexer", "SharedFolderIndexer\SharedFolderIndexer.csproj", "{589FB6CB-4E45-485C-9CA4-AD304A074E02}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundCloudMediaEngine", "SoundCloudMediaEngine\SoundCloudMediaEngine.csproj", "{A3A43998-A37A-4E80-ABFB-9FB0A0735F45}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundCloud.WebUI", "SoundCloud.WebUI\SoundCloud.WebUI.csproj", "{D0D974AE-21DC-4C6E-A500-B66931369EFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationHelper", "ApplicationHelper\ApplicationHelper.csproj", "{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D0D974AE-21DC-4C6E-A500-B66931369EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0D974AE-21DC-4C6E-A500-B66931369EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0D974AE-21DC-4C6E-A500-B66931369EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
