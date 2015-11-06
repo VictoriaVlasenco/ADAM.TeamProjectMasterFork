@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharedFolderIndexer
 {
-    class RecordMetadata
+    public class RecordMetadata
     {
         public string FileName { get; set; }
         public string Title { get; set; }

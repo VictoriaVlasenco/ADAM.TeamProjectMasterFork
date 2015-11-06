@@ -10,7 +10,7 @@ using Adam.Core.Fields;
 
 namespace SharedFolderIndexer
 {
-    class XmlMetadataService : IMetadataService
+    public class XmlMetadataService : IMetadataService
     {
         public string FilePath { get; set; }
         public XmlMetadataService(string filePath)
@@ -42,6 +42,7 @@ namespace SharedFolderIndexer
                     Genre = genreNode != null ? genreNode.InnerText : null
                 });
             }
+            return metadataList;
         }
     }
 }
