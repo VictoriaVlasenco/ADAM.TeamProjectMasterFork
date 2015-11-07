@@ -8,7 +8,7 @@ using Adam.Core;
 
 namespace ApplicationHelper
 {
-    public static class ApplicationHelper
+    public static class AdamContext
     {
         public static void AdamLogOn()
         {
@@ -36,7 +36,6 @@ namespace ApplicationHelper
             HttpContext.Current.Session["AdamSessionId"] = app.SessionId;
             HttpContext.Current.Items["AdamApplication"] = app;
         }
-
 
         public static Application GetApplication()
         {

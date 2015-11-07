@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿#region
+
 using System.Web.Mvc;
+using ApplicationHelper;
+
+#endregion
 
 namespace SoundCloud.Web.Controllers
 {
@@ -10,20 +11,12 @@ namespace SoundCloud.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
+            var app = AdamContext.GetApplication();
+            if (app!=null)
+            {
+                ViewBag.Adam = "HELLO ADAM";
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
+            }
             return View();
         }
     }
