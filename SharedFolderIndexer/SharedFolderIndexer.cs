@@ -51,6 +51,7 @@ namespace SharedFolderIndexer
                     new XmlMetadataService(Path.GetDirectoryName(filePath) + @"\metadata.xml");
                 var metadataList = metadataService.GetMetadataList();
                 var metadataFounded = false;
+                var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(filePath);
                 if (metadataList != null)
                 {
                     var metadata = metadataList.Find(file => Path.GetFileName(filePath).Equals(file.FileName));
@@ -62,15 +63,15 @@ namespace SharedFolderIndexer
                                 ? new ClassificationPath("SoundCloud/Unclassified")
                                 : new ClassificationPath("SoundCloud/" + metadata.Genre), true);
                         record.Fields.GetField<TextField>("SoundTitle")
-                            .SetValue(String.IsNullOrEmpty(metadata.Title) ? metadata.FileName : metadata.Title);
+                            .SetValue(String.IsNullOrEmpty(metadata.Title) ? fileNameWithoutExtension : metadata.Title);
                         record.Fields.GetField<TextField>("SoundAuthor")
-                            .SetValue(String.IsNullOrEmpty(metadata.Title) ? metadata.FileName : metadata.Title);
+                            .SetValue(String.IsNullOrEmpty(metadata.Title) ? fileNameWithoutExtension : metadata.Title);
                     }
                 }
                 if (!metadataFounded)
                 {
                     record.Classifications.Add(new ClassificationPath("SoundCloud/Unclassified"), true);
-                    record.Fields.GetField<TextField>("SoundTitle").SetValue(Path.GetFileName(filePath));
+                    record.Fields.GetField<TextField>("SoundTitle").SetValue(fileNameWithoutExtension);
                     record.Fields.GetField<TextField>("SoundAuthor").SetValue("Unkonwn");
                 }
                 record.Save();
