@@ -39,6 +39,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Adam.Core, Version=5.4.0.0, Culture=neutral, PublicKeyToken=63f11f167f68d05b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\ADAM Software\ADAM\Assemblies\Adam.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Adam.Tools, Version=5.4.0.0, Culture=neutral, PublicKeyToken=63f11f167f68d05b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\ADAM Software\ADAM\Assemblies\Adam.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Adam.Web, Version=5.4.0.0, Culture=neutral, PublicKeyToken=63f11f167f68d05b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\ADAM Software\ADAM\Assemblies\Adam.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -115,6 +127,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mappers\RecordModelMapper.cs" />
+    <Compile Include="Mappers\RecordToModelMapper.cs" />
+    <Compile Include="Models\SoundViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,7 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -164,6 +178,28 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationHelper\ApplicationHelper.csproj">
+      <Project>{22f460ba-af1b-4594-b3af-dcdca1a90ecf}</Project>
+      <Name>ApplicationHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobsMaintenanceManager\JobsMaintenanceManager.csproj">
+      <Project>{01169497-6cd3-4b47-a12f-19a0ddd72bf7}</Project>
+      <Name>JobsMaintenanceManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedFolderIndexer\SharedFolderIndexer.csproj">
+      <Project>{589fb6cb-4e45-485c-9ca4-ad304a074e02}</Project>
+      <Name>SharedFolderIndexer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundCloud.Core\SoundCloud.Core.csproj">
+      <Project>{522ae6d3-104d-40f5-abd4-e20616917866}</Project>
+      <Name>SoundCloud.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundCloudMediaEngine\SoundCloudMediaEngine.csproj">
+      <Project>{a3a43998-a37a-4e80-abfb-9fb0a0735f45}</Project>
+      <Name>SoundCloudMediaEngine</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

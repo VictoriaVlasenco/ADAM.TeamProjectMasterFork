@@ -17,5 +17,23 @@ namespace SoundCloud.WebUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        void Session_Start(object sender, EventArgs e)
+        {
+            ApplicationHelper.ApplicationHelper.AdamLogOn();
+        }
+
+
+        //void Application_BeginRequest(object sender, EventArgs e)
+        //{
+        //   ApplicationHelper.ApplicationHelper.GetApplication();
+        //}
+
+      
+        protected void Application_End()
+        {
+            ApplicationHelper.ApplicationHelper.AdamLogOff();
+        }   
+
     }
 }

@@ -42,7 +42,7 @@ namespace SoundCloudMediaEngine
                 /*convertion process here
                  * result of convertion must be saved at 'tmpFilePath'
                  */
-                action.convertedFilesPaths.Add(tmpFilePath);
+                //action.convertedFilesPaths.Add(tmpFilePath);
 
             }
         }

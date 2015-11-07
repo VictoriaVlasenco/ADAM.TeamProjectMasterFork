@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Adam.Core;
 using Adam.Core.Classifications;
@@ -43,7 +44,21 @@ namespace SoundCloud.Core
             }
             return new List<Record>();
         }
-       
+
+        private static List<Record> FindRecords(Application app, SearchExpression searchExpression)
+        {
+            var recordHelper = new RecordHelper(app);
+
+            var ids = recordHelper.GetIds(searchExpression).ToList();
+            List<Record> records = (from recordId in ids let record = new Record(app) where record.TryLoad(recordId) == TryLoadResult.Success select record).ToList();
+            return records;
+        }
+
+        public static List<Record> FindRecordsSoundCloud(Application app)
+        {
+            SearchExpression searchExpression = new SearchExpression("Classification.Name=SoundCloud");
+            return FindRecords(app, searchExpression);
+        }
 
         #endregion
     }
