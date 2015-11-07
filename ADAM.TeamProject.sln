@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Web
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedFolderIndexer", "SharedFolderIndexer\SharedFolderIndexer.csproj", "{589FB6CB-4E45-485C-9CA4-AD304A074E02}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "ConverterClassLibrary\Converter.csproj", "{B2253849-F594-4B8E-97FF-010E9A31D666}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobsMaintenanceManager", "JobsMaintenanceManager\JobsMaintenanceManager.csproj", "{01169497-6CD3-4B47-A12F-19A0DDD72BF7}"
@@ -15,7 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundCloudMediaEngine", "So
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundCloud.WebUI", "SoundCloud.WebUI\SoundCloud.WebUI.csproj", "{D0D974AE-21DC-4C6E-A500-B66931369EFB}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationHelper", "ApplicationHelper\ApplicationHelper.csproj", "{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedFolderIndexer", "SharedFolderIndexer\SharedFolderIndexer.csproj", "{589FB6CB-4E45-485C-9CA4-AD304A074E02}"
+>>>>>>> origin/Dev1
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2253849-F594-4B8E-97FF-010E9A31D666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B2253849-F594-4B8E-97FF-010E9A31D666}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2253849-F594-4B8E-97FF-010E9A31D666}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,10 +45,17 @@ Global
 		{D0D974AE-21DC-4C6E-A500-B66931369EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0D974AE-21DC-4C6E-A500-B66931369EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0D974AE-21DC-4C6E-A500-B66931369EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> origin/Dev1
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

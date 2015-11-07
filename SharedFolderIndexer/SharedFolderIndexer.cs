@@ -1,7 +1,6 @@
 ﻿#region
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Adam.Core;
@@ -17,7 +16,7 @@ namespace SharedFolderIndexer
 {
     public class SharedFolderIndexer : IndexMaintenanceJob
     {
-        private readonly string[] formatsSupported = { ".mp3" };
+        private readonly string[] formatsSupported = {".mp3"};
 
         public SharedFolderIndexer(Application app)
             : base(app)
@@ -44,46 +43,42 @@ namespace SharedFolderIndexer
             base.OnCatalog(e);
             if (e.Action == CatalogAction.Manual)
             {
-                Record record = new Record(App);
+                var record = new Record(App);
                 record.AddNew();
-                record.Files.AddFile(e.Path);
-                XmlMetadataService metadataService =
-                    new XmlMetadataService(Path.GetDirectoryName(e.Path) + @"\metadata.xml");
-                List<RecordMetadata> metadataList = metadataService.GetMetadataList();
-                bool metadataFound = false;
+                var filePath = e.Path;
+                record.Files.AddFile(filePath);
+                IMetadataService metadataService =
+                    new XmlMetadataService(Path.GetDirectoryName(filePath) + @"\metadata.xml");
+                var metadataList = metadataService.GetMetadataList();
+                var metadataFounded = false;
                 if (metadataList != null)
                 {
-                    foreach (RecordMetadata metadata in metadataList)
+                    var metadata = metadataList.Find(file => Path.GetFileName(filePath).Equals(file.FileName));
+                    if (metadata != null)
                     {
-                        if (metadata.FileName != null)
-                        {
-                            if (metadata.FileName.Equals(Path.GetFileName(e.Path)))
-                            {
-                                metadataFound = true;
-                                record.Classifications.Add(
-                                    metadata.Genre != null
-                                        ? new ClassificationPath("SoundCloud/" + metadata.Genre)
-                                        : new ClassificationPath("SoundCloud/Unclassified"), true);
-
-                                record.Fields.GetField<TextField>("SoundTitle").SetValue(metadata.Title ?? metadata.FileName);
-                                record.Fields.GetField<TextField>("SoundAuthor").SetValue(metadata.Artist ?? "Unkonwn");
-                                break;
-                            }
-                        }
+                        metadataFounded = true;
+                        record.Classifications.Add(
+                            String.IsNullOrEmpty(metadata.Genre)
+                                ? new ClassificationPath("SoundCloud/Unclassified")
+                                : new ClassificationPath("SoundCloud/" + metadata.Genre), true);
+                        record.Fields.GetField<TextField>("SoundTitle")
+                            .SetValue(String.IsNullOrEmpty(metadata.Title) ? metadata.FileName : metadata.Title);
+                        record.Fields.GetField<TextField>("SoundAuthor")
+                            .SetValue(String.IsNullOrEmpty(metadata.Title) ? metadata.FileName : metadata.Title);
                     }
                 }
-                if(!metadataFound)
+                if (!metadataFounded)
                 {
                     record.Classifications.Add(new ClassificationPath("SoundCloud/Unclassified"), true);
-                    record.Fields.GetField<TextField>("SoundTitle").SetValue(Path.GetFileName(e.Path));
+                    record.Fields.GetField<TextField>("SoundTitle").SetValue(Path.GetFileName(filePath));
                     record.Fields.GetField<TextField>("SoundAuthor").SetValue("Unkonwn");
                 }
                 record.Save();
-                if (File.Exists(e.Path))
+                if (File.Exists(filePath))
                 {
                     try
                     {
-                        File.Delete(e.Path);
+                        File.Delete(filePath);
                     }
                     catch (Exception exception)
                     {

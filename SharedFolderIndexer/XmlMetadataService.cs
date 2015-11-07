@@ -36,10 +36,10 @@ namespace SharedFolderIndexer
                 genreNode = track.SelectSingleNode("genre");
                 metadataList.Add(new RecordMetadata()
                 {
-                    FileName = fileNameNode != null ? fileNameNode.InnerText : null,
-                    Title = titleNode != null ? titleNode.InnerText : null,
-                    Artist = artistNode != null ? artistNode.InnerText : null,
-                    Genre = genreNode != null ? genreNode.InnerText : null
+                    FileName = fileNameNode != null ? fileNameNode.InnerText : "",
+                    Title = titleNode != null ? titleNode.InnerText : "",
+                    Artist = artistNode != null ? artistNode.InnerText : "",
+                    Genre = genreNode != null ? genreNode.InnerText :""
                 });
             }
             return metadataList;

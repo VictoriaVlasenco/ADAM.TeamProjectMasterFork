@@ -47,6 +47,13 @@
     <Compile Include="ConvertSoundAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoundCloudMediaEngine.cs" />
+    <Compile Include="SoundConvertAction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConverterClassLibrary\Converter.csproj">
+      <Project>{b2253849-f594-4b8e-97ff-010e9a31d666}</Project>
+      <Name>Converter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

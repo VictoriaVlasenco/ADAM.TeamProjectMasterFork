@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region
+
 using Adam.Core;
 using Adam.Core.MediaEngines;
+using ConverterClassLibrary;
+
+#endregion
 
 namespace SoundCloudMediaEngine
 {
-    class SoundCloudMediaEngine:MediaEngine
+    internal class SoundCloudMediaEngine : MediaEngine
     {
         private const string MediaEngineId = "SoundCloudMediaEngine";
+
         public SoundCloudMediaEngine(Application app) : base(app)
         {
         }
@@ -25,25 +26,22 @@ namespace SoundCloudMediaEngine
             switch (action.Id)
             {
                 case "ConvertSoundAction":
-                    ConvertSound((ConvertSoundAction)action);
+                    ConvertSound((ConvertSoundAction) action);
                     return true;
                 default:
                     return false;
-
             }
         }
 
         private void ConvertSound(ConvertSoundAction action)
         {
-            string tmpFilePath;
-            foreach (string format in action.FormatsRequired)
+            foreach (var format in action.FormatsRequired)
             {
-                tmpFilePath = App.GetTemporaryFile(format);
-                /*convertion process here
-                 * result of convertion must be saved at 'tmpFilePath'
-                 */
-                action.ConvertedFilesPaths.Add(tmpFilePath);
-
+                var newFilePath = App.GetTemporaryFile(format);
+                if (AudioConverter.TryConvert(action.FilePath, format, newFilePath))
+                {
+                    action.ConvertedFilesPaths.Add(newFilePath);
+                }
             }
         }
     }
