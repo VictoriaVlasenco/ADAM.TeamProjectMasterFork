@@ -3,19 +3,18 @@
 using System;
 using System.Linq;
 using NReco.VideoConverter;
-using Format = Microsoft.SqlServer.Server.Format;
 
 #endregion
 
-namespace ConverterClassLibrary
+namespace AudioConverterLibrary
 {
     public static class AudioConverter
     {
         public static bool TryConvert(string filePath, string newFormat, string newPath)
         {
-            var formats = Enum.GetValues(typeof (Format)).OfType<string>();
-            if (formats.Contains(newFormat.ToLower()))
-            {  
+            var supportedFormats = new[] {"ogg", "ac3"};
+            if (supportedFormats.Contains(newFormat.ToLower()))
+            {
                 try
                 {
                     var ffMpeg = new FFMpegConverter();

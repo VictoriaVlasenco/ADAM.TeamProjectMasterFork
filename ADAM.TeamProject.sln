@@ -7,13 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "ConverterClass
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobsMaintenanceManager", "JobsMaintenanceManager\JobsMaintenanceManager.csproj", "{01169497-6CD3-4B47-A12F-19A0DDD72BF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundCloud.Core", "SoundCloud.Core\SoundCloud.Core.csproj", "{522AE6D3-104D-40F5-ABD4-E20616917866}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundCloudMediaEngine", "SoundCloudMediaEngine\SoundCloudMediaEngine.csproj", "{A3A43998-A37A-4E80-ABFB-9FB0A0735F45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundCloud.WebUI", "SoundCloud.WebUI\SoundCloud.WebUI.csproj", "{D0D974AE-21DC-4C6E-A500-B66931369EFB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedFolderIndexer", "SharedFolderIndexer\SharedFolderIndexer.csproj", "{589FB6CB-4E45-485C-9CA4-AD304A074E02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationHelper", "ApplicationHelper\ApplicationHelper.csproj", "{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundCloud.Web", "SoundCloud.Web\SoundCloud.Web.csproj", "{3054C0A1-6935-4306-B1F7-5C8DA8799621}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,22 +29,22 @@ Global
 		{01169497-6CD3-4B47-A12F-19A0DDD72BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01169497-6CD3-4B47-A12F-19A0DDD72BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01169497-6CD3-4B47-A12F-19A0DDD72BF7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{522AE6D3-104D-40F5-ABD4-E20616917866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{522AE6D3-104D-40F5-ABD4-E20616917866}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{522AE6D3-104D-40F5-ABD4-E20616917866}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{522AE6D3-104D-40F5-ABD4-E20616917866}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3A43998-A37A-4E80-ABFB-9FB0A0735F45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A3A43998-A37A-4E80-ABFB-9FB0A0735F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3A43998-A37A-4E80-ABFB-9FB0A0735F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3A43998-A37A-4E80-ABFB-9FB0A0735F45}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0D974AE-21DC-4C6E-A500-B66931369EFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0D974AE-21DC-4C6E-A500-B66931369EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0D974AE-21DC-4C6E-A500-B66931369EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0D974AE-21DC-4C6E-A500-B66931369EFB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{589FB6CB-4E45-485C-9CA4-AD304A074E02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22F460BA-AF1B-4594-B3AF-DCDCA1A90ECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3054C0A1-6935-4306-B1F7-5C8DA8799621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3054C0A1-6935-4306-B1F7-5C8DA8799621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3054C0A1-6935-4306-B1F7-5C8DA8799621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3054C0A1-6935-4306-B1F7-5C8DA8799621}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

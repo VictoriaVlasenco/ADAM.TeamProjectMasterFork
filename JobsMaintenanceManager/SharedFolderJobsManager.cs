@@ -23,6 +23,7 @@ namespace JobsMaintenanceManager
                     maintenanceManager.Execute();
                 }
             };
+            timer.Start();
             return timer;
         }
     }
