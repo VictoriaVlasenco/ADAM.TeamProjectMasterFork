@@ -3,7 +3,6 @@
 using System;
 using System.IO;
 using System.Linq;
-using System.Xml;
 using Adam.Core;
 using Adam.Core.Classifications;
 using Adam.Core.Fields;
@@ -46,46 +45,40 @@ namespace SharedFolderIndexer
             {
                 var record = new Record(App);
                 record.AddNew();
-                record.Files.AddFile(e.Path);
-                var metadataDocument = new XmlDocument();
-                metadataDocument.Load(Path.GetDirectoryName(e.Path) + @"\metadata.xml");
-                XmlNode tracks = metadataDocument.DocumentElement;
-                XmlNode tmpNode;
-                if (tracks != null)
+                var filePath = e.Path;
+                record.Files.AddFile(filePath);
+                IMetadataService metadataService =
+                    new XmlMetadataService(Path.GetDirectoryName(filePath) + @"\metadata.xml");
+                var metadataList = metadataService.GetMetadataList();
+                var metadataFounded = false;
+                if (metadataList != null)
                 {
-                    foreach (XmlNode track in tracks.ChildNodes)
+                    var metadata = metadataList.Find(file => Path.GetFileName(filePath).Equals(file.FileName));
+                    if (metadata != null)
                     {
-                        if (track.SelectSingleNode("filename") != null)
-                        {
-                            if (Path.GetFileName(e.Path).Equals(track.SelectSingleNode("filename").InnerText))
-                            {
-                                tmpNode = track.SelectSingleNode("genre");
-                                e.Record.Classifications.Add(
-                                    tmpNode != null
-                                        ? new ClassificationPath("SoundCloud/" + tmpNode.InnerText)
-                                        : new ClassificationPath("SoundCloud"), true);
-
-                                tmpNode = track.SelectSingleNode("title");
-                                if (tmpNode != null)
-                                    e.Record.Fields.GetField<TextField>("SoundTitle").SetValue(tmpNode.InnerText);
-                                tmpNode = track.SelectSingleNode("artist");
-                                if (tmpNode != null)
-                                    e.Record.Fields.GetField<TextField>("SoundAuthor").SetValue(tmpNode.InnerText);
-                                break;
-                            }
-                        }
+                        metadataFounded = true;
+                        record.Classifications.Add(
+                            String.IsNullOrEmpty(metadata.Genre)
+                                ? new ClassificationPath("SoundCloud/Unclassified")
+                                : new ClassificationPath("SoundCloud/" + metadata.Genre), true);
+                        record.Fields.GetField<TextField>("SoundTitle")
+                            .SetValue(String.IsNullOrEmpty(metadata.Title) ? metadata.FileName : metadata.Title);
+                        record.Fields.GetField<TextField>("SoundAuthor")
+                            .SetValue(String.IsNullOrEmpty(metadata.Title) ? metadata.FileName : metadata.Title);
                     }
                 }
-                else
+                if (!metadataFounded)
                 {
-                    e.Record.Classifications.Add(new ClassificationPath("SoundCloud/"), true);
+                    record.Classifications.Add(new ClassificationPath("SoundCloud/Unclassified"), true);
+                    record.Fields.GetField<TextField>("SoundTitle").SetValue(Path.GetFileName(filePath));
+                    record.Fields.GetField<TextField>("SoundAuthor").SetValue("Unkonwn");
                 }
                 record.Save();
-                if (File.Exists(e.Path))
+                if (File.Exists(filePath))
                 {
                     try
                     {
-                        File.Delete(e.Path);
+                        File.Delete(filePath);
                     }
                     catch (Exception exception)
                     {
