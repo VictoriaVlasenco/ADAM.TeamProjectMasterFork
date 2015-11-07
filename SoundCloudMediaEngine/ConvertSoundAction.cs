@@ -24,7 +24,10 @@ namespace SoundCloudMediaEngine
         {
             get { return _convertedFilesPaths; }
         }
-
+        public string FilePath
+        {
+            get { return _originalFilePath; }
+        }
         public string[] FormatsRequired
         {
             get { return _formatsRequired; }
