@@ -15,7 +15,7 @@ namespace ConverterClassLibrary
         {
             var formats = Enum.GetValues(typeof (Format)).OfType<string>();
             if (formats.Contains(newFormat.ToLower()))
-            {
+            {  
                 try
                 {
                     var ffMpeg = new FFMpegConverter();

@@ -16,21 +16,21 @@ namespace SoundCloudMediaEngine
     internal class ConvertSoundAction : MediaAction, ICatalogAction
     {
         private const string ActionId = "ConvertSoundAction";
-        private readonly string[] _formatsRequired={"ogg","ac3"};
-        private readonly string _originalFilePath;
-        private readonly List<string> _convertedFilesPaths=new List<string>();
+        private readonly string[] formatsRequired={"ogg","ac3"};
+        private readonly string originalFilePath;
+        private readonly List<string> convertedFilesPaths=new List<string>();
 
         public List<string> ConvertedFilesPaths
         {
-            get { return _convertedFilesPaths; }
+            get { return convertedFilesPaths; }
         }
         public string FilePath
         {
-            get { return _originalFilePath; }
+            get { return originalFilePath; }
         }
         public string[] FormatsRequired
         {
-            get { return _formatsRequired; }
+            get { return formatsRequired; }
         }
         public ConvertSoundAction(string filepath,bool isCritical) : base(isCritical)
         {
@@ -38,7 +38,7 @@ namespace SoundCloudMediaEngine
             {
                 throw ExceptionManager.CreateArgumentNullException("filepath");
             }
-            _originalFilePath = filepath;
+            originalFilePath = filepath;
         }
 
         public ConvertSoundAction(CatalogActionData data):base(data.IsCritical)
@@ -48,7 +48,7 @@ namespace SoundCloudMediaEngine
                 throw ExceptionManager.CreateArgumentNullException("data");
             }
 
-            _originalFilePath = data.Path;
+            originalFilePath = data.Path;
         }
 
         public override string Id
@@ -58,7 +58,7 @@ namespace SoundCloudMediaEngine
 
         public void UpdateFileVersion(FileVersion version, XmlWriter writer)
         {
-            foreach (string path in _convertedFilesPaths)
+            foreach (string path in convertedFilesPaths)
             {
                 version.AdditionalFiles.Add(path);
             }

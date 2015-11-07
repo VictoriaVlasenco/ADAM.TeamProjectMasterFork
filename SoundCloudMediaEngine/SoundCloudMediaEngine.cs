@@ -43,6 +43,7 @@ namespace SoundCloudMediaEngine
                     action.ConvertedFilesPaths.Add(newFilePath);
                 }
             }
+            action.UpdateFileVersion();
         }
     }
 }

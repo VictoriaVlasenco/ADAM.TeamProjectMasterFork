@@ -7,8 +7,8 @@
     <ProjectGuid>{B2253849-F594-4B8E-97FF-010E9A31D666}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConverterClassLibrary</RootNamespace>
-    <AssemblyName>ConverterClassLibrary</AssemblyName>
+    <RootNamespace>AudioConverter</RootNamespace>
+    <AssemblyName>AudioConverter</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
