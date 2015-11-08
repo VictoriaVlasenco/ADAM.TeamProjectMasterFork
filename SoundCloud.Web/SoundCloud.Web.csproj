@@ -184,6 +184,10 @@
       <Project>{22f460ba-af1b-4594-b3af-dcdca1a90ecf}</Project>
       <Name>ApplicationHelper</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JobsMaintenanceManager\JobsMaintenanceManager.csproj">
+      <Project>{01169497-6cd3-4b47-a12f-19a0ddd72bf7}</Project>
+      <Name>JobsMaintenanceManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

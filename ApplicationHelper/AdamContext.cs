@@ -2,6 +2,7 @@
 
 using System;
 using System.Web;
+using System.Web.Configuration;
 using Adam.Core;
 
 #endregion
@@ -10,10 +11,28 @@ namespace ApplicationHelper
 {
     public static class AdamContext
     {
+        public static Application GetNewApp()
+        {
+            var app = new Application();
+            var registration = WebConfigurationManager.AppSettings["AdamRegistration"];
+            var user = WebConfigurationManager.AppSettings["AdamUser"];
+            var password = WebConfigurationManager.AppSettings["AdamPassword"];
+            var status = app.LogOn(registration, user, password);
+            if (status != LogOnStatus.LoggedOn)
+            {
+                app.Dispose();
+                throw new UnauthorizedAccessException();
+            }
+            return app;
+        }
+
         public static void AdamLogOn()
         {
             var app = new Application();
-            var status = app.LogOn("TRAINING", "Victoria_Vlasenco", "asdf100795");
+            var registration = WebConfigurationManager.AppSettings["AdamRegistration"];
+            var user = WebConfigurationManager.AppSettings["AdamUser"];
+            var password = WebConfigurationManager.AppSettings["AdamPassword"];
+            var status = app.LogOn(registration, user, password);
             if (status != LogOnStatus.LoggedOn)
             {
                 app.Dispose();

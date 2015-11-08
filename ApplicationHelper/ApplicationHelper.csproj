@@ -49,7 +49,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdamContext.cs" />
+    <Compile Include="AdamRecordHelper.cs" />
+    <Compile Include="AdamSharedFolderJobManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JobsMaintenanceManager\JobsMaintenanceManager.csproj">
+      <Project>{01169497-6CD3-4B47-A12F-19A0DDD72BF7}</Project>
+      <Name>JobsMaintenanceManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
